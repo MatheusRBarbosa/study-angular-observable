@@ -119,6 +119,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "study-angular-observable"
+    }
+  },
+  "defaultProject": "study-angular-observable",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
