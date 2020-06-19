@@ -16,7 +16,6 @@ export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
-    this.getHeroes();
     this.getPokemons();
   }
 
@@ -26,10 +25,10 @@ export class HeroesComponent implements OnInit {
   }
 
   getPokemons(): void {
-    this.heroService.getAll()
+    /*this.heroService.getPokemons()
     .subscribe(pokemons => {
       this.pokemons = pokemons;
       console.log(this.pokemons);
-    });
+    });*/
   }
 }
