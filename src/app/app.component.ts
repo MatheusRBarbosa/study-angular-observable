@@ -8,11 +8,8 @@ import { HeroService } from './services/hero.service';
 })
 export class AppComponent implements OnInit {
   
-  constructor(private service: HeroService){}
+  constructor(){}
 
   ngOnInit(){
-    this.service.prepareAll();
   }
-  
-  title = 'Pokedex';
 }
