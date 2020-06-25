@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { PokemonMacro } from '../models/pokemonMacro';
@@ -17,15 +17,19 @@ export class PokemonService {
         this.config = new ApiConfig();
     }
 
-    getPokemons(): Observable<PokemonMacro> {
-        return this.http.get<PokemonMacro>(`${this.config.baseUrl}/pokemon`);
+    getPokemons(offset, limit: number = 50): Observable<PokemonMacro> {
+        let params = new HttpParams()
+            .set('offset', offset.toString())
+            .set('limit', limit.toString());
+
+        return this.http.get<PokemonMacro>(`${this.config.baseUrl}/pokemon`, {params});
     }
 
-    getPokemon(id: number): Observable<Pokemon> {
-        return this.http.get<Pokemon>(`${this.config.baseUrl}/pokemon/${id}`)
+    getPokemon(url: string): Observable<Pokemon> {
+        return this.http.get<Pokemon>(url);
     }
 
-    getSprites(uri: string): Observable<any>{
+    getSprites(uri: string): Observable<any> {
         return this.http.get<any>(uri);
     }
 }

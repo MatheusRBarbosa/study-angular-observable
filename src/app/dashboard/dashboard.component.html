@@ -1,5 +1,11 @@
 <h3>Pokedex</h3>
-<div class="grid grid-pad">
+<div class="grid grid-pad"
+      infinite-scroll
+      [infiniteScrollThrottle]="throttle"
+      [infiniteScrollDistance]="scrollDistance"
+      [alwaysCallback] = "alwaysCallback"
+      (scrolled)="onScrollDown()">
+  
   <a *ngFor="let pokemon of pokemons" class="col-1-4">
     <div class="module hero">
       <h4>{{pokemon.name}}</h4>

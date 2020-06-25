@@ -13,7 +13,7 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
   pokemons: Pokemon[];
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService) {}
 
   ngOnInit() {
   }

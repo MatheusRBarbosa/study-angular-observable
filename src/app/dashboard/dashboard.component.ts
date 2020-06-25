@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
-import { Hero } from '../models/hero';
 import { Pokemon } from '../models/pokemon';
 
-import { HeroService } from '../services/hero.service';
 import { PokemonService } from '../services/pokemon.service';
 import { PokemonMacro } from '../models/pokemonMacro';
 
@@ -15,33 +13,46 @@ import { PokemonMacro } from '../models/pokemonMacro';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
   pokemons: Pokemon[] = [];
 
-  constructor(private h: HeroService, private service: PokemonService) { }
+  pokemonCount: number = 0;
+  readonly _offsetParser = 50;
+  offset: number = 0;
+  limit: number = 50;
+
+  throttle = 300;
+  scrollDistance = 1;
+  alwaysCallback = true;
+
+  constructor(private service: PokemonService) {}
 
   ngOnInit() {
-    //this.getHeroes();
-    this.prepare();
+    this.preparePokemons(this.offset);
   }
 
-  getHeroes(): void {
-    this.h.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+  preparePokemons = (offset: number): void => {
+    this.service.getPokemons(offset).subscribe(this.getPokemons, this.onError);
   }
 
-  prepare(): void{
-    this.service.getPokemons().subscribe(this.getPokemons, this.onError);
+  onScrollDown = () => {
+    this.offset += this._offsetParser;
+    this.preparePokemons(this.offset);
+    console.log(this.offset)
   }
 
   private getPokemons = (macro: PokemonMacro) => {
-    for(let id = 1; id <= macro.count; id++){
-      this.service.getPokemon(id)
-      .pipe(
-        mergeMap(pokemon => this.getPokemon(pokemon))
-      )
-      .subscribe({error: this.onError})
-    }    
+    if(this.alwaysCallback){
+      for(let i = 0; i < macro.results.length; i++) {
+        this.service.getPokemon(macro.results[i].url)
+        .pipe(
+          mergeMap(pokemon => this.getPokemon(pokemon))
+        )
+        .subscribe({error: this.onError})
+      }
+      if(this.offset >= macro.count){
+        this.alwaysCallback = false;
+      }    
+    }
   }
 
   private getPokemon = (pokemon: Pokemon): Observable<Pokemon> => {
