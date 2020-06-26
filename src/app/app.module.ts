@@ -5,8 +5,6 @@ import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent }         from './app.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './heroes/heroes.component';
-import { MessagesComponent }    from './messages/messages.component';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
@@ -23,8 +21,6 @@ import { AppRoutingModule }     from './app-routing.module';
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroesComponent,
-    MessagesComponent
   ],
   bootstrap: [ AppComponent ]
 })
