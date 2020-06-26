@@ -10,7 +10,7 @@ import { PokemonMacro } from '../models/pokemonMacro';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  styleUrls: [ './dashboard.component.css', './types.css' ]
 })
 export class DashboardComponent implements OnInit {
   pokemons: Pokemon[] = [];

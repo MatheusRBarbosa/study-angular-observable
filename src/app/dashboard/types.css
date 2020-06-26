@@ -1,0 +1,159 @@
+.normal {
+    background-color: rgba(243, 182, 131, 1);
+}
+
+.normal:hover {
+    background-color: rgba(243, 182, 131, 0.7);
+}
+
+.fighting {
+    background-color: rgba(253, 105, 105, 1);
+}
+
+.fighting:hover {
+    background-color: rgba(253, 105, 105, 0.7);
+}
+
+.flying {
+    background-color: rgba(153, 142, 255, 1);
+}
+
+.flying:hover {
+    background-color: rgba(153, 142, 255, 0.7);
+}
+
+.poison {
+    background-color: rgba(126, 20, 112, 1);
+}
+
+.poison:hover {
+    background-color: rgba(126, 20, 112, 0.7);
+}
+
+.ground {
+    background-color: rgba(95, 64, 23, 1);
+}
+
+.ground:hover {
+    background-color: rgba(95, 64, 23, 0.7);
+}
+
+.rock {
+    background-color: rgba(129, 129, 129, 1);
+}
+
+.rock:hover {
+    background-color: rgba(129, 129, 129, 0.7);
+}
+
+.bug {
+    background-color: rgb(114, 170, 41);
+}
+
+.bug:hover {
+    background-color: rgba(114, 170, 41, 0.7);
+}
+
+.ghost {
+    background-color: rgb(87, 19, 143);
+}
+
+.ghost:hover {
+    background-color: rgba(87, 19, 143, 0.7);
+}
+
+.steel {
+    background-color: rgb(208, 202, 235);
+}
+
+.steel:hover {
+    background-color: rgba(208, 202, 235, 0.7);
+}
+
+.fire {
+    background-color: rgb(255, 129, 45);
+}
+
+.fire:hover {
+    background-color: rgba(255, 129, 45, 0.7);
+}
+
+.water {
+    background-color: rgb(92, 80, 255);
+}
+
+.water:hover {
+    background-color: rgba(92, 80, 255, 0.7);
+}
+
+.grass {
+    background-color: rgb(194, 250, 120);
+}
+
+.grass:hover {
+    background-color: rgba(194, 250, 120, 0.7);
+}
+
+.electric {
+    background-color: rgb(255, 230, 0);
+}
+
+.electric:hover {
+    background-color: rgba(255, 230, 0, 0.7);
+}
+
+.psychic {
+    background-color: rgb(247, 187, 255);
+}
+
+.psychic:hover {
+    background-color: rgba(247, 187, 255, 0.7);
+}
+
+.ice {
+    background-color: rgb(41, 155, 170);
+}
+
+.ice:hover {
+    background-color: rgba(41, 155, 170, 0.7);
+}
+
+.dragon {
+    background-color: rgb(65, 8, 8);
+}
+
+.dragon:hover {
+    background-color: rgba(65, 8, 8, 0.7);
+}
+
+.dark {
+    background-color: rgb(51, 51, 51);
+}
+
+.dark:hover {
+    background-color: rgba(51, 51, 51, 0.7);
+}
+
+.fairy {
+    background-color: rgb(255, 101, 234);
+}
+
+.fairy:hover {
+    background-color: rgba(255, 101, 234, 0.7);
+}
+
+.unknown {
+    background-color: rgb(114, 170, 41);
+}
+
+.unknown:hover {
+    background-color: rgba(114, 170, 41, 0.7);
+}
+
+.shadow {
+    background-color: rgb(37, 5, 33);
+}
+
+.shadow:hover {
+    background-color: rgba(37, 5, 33, 0.7);
+}
