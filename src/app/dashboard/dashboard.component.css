@@ -61,6 +61,7 @@ img{
   border-radius: 2px;
   transition: 0.2s ease;
 }
+
 .module:hover {
   cursor: pointer;
 }

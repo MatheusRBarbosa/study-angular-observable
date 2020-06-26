@@ -12,4 +12,5 @@ export interface Pokemon {
     stats: Stat[];
     sprites: Sprite;
     abilities: Ability[];
+    color: string;
 }
