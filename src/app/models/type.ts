@@ -5,4 +5,3 @@ export interface Type {
         url: string;
     }
 }
-

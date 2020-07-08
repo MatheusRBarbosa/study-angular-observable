@@ -7,7 +7,7 @@
       (scrolled)="onScrollDown()">
   
   <a *ngFor="let pokemon of pokemons" class="col-1-4">
-    <div class="module normal ">
+    <div class="module" [style.background]="pokemon.color" [style.hover]="">
       <img src={{pokemon.sprites.front_default}} alt={{pokemon.name}}>
       <h5>{{pokemon.name | titlecase }}</h5>
     </div>

@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
 import { Pokemon } from '../models/pokemon';
-import { Type } from '../models/type';
 
 import { PokemonService } from '../services/pokemon.service';
 import { PokemonMacro } from '../models/pokemonMacro';
@@ -19,7 +18,24 @@ export class DashboardComponent implements OnInit {
   arrayColors = {
     normal: '#f3b683',
     fighting: '#fd6969',
-    flying:  '998eff'
+    flying:  '#998eff',
+    poison: '#7e1470',
+    ground: '#5f4017',
+    rock: '#818181',
+    bug: '#72aa29',
+    ghost: '#57138f',
+    steel: '#d0caeb',
+    fire: '#ff812d',
+    water: '#5c50ff',
+    grass: '#c2fa78',
+    electric: '#ffe600',
+    psychic: '#f7bbff',
+    ice: '#299baa',
+    dragon: '#410808',
+    dark: '#333333',
+    fairy: '#ff65ea',
+    unknown: '',
+    shadow: '#250521'
   }
 
   pokemonCount: number = 0;
@@ -64,28 +80,36 @@ export class DashboardComponent implements OnInit {
 
   private getPokemon = (pokemon: Pokemon): Observable<Pokemon> => {
     
-    this.findTypeColor(this.arrayColors, pokemon);
+    const coloredPokemon: string[] = this.findTypeColor(this.arrayColors, pokemon);
+    pokemon.color = this.createColor(coloredPokemon);
     this.pokemons.push(pokemon);
     return of(pokemon);
   }
 
   // Retorna as cores do pokemon
-  private findTypeColor = (arrayColors, pokemon: Pokemon) => {
+  private findTypeColor = (arrayColors, pokemon: Pokemon): string[] => {
     const colorTypes: string[] = Object.keys(arrayColors);
-    let colors: string[] = [];
+    const coloredPokemon: string[] = [];
 
-    for(let colorType of colorTypes){
+    for(let colorType of colorTypes) {
       for(let type of pokemon.types ){
         if(colorType == type.type.name){
-          colors.push(arrayColors[colorType])
+          coloredPokemon.push(arrayColors[colorType]);
         }
       }
     }
-
-    return colors;
+    return coloredPokemon;
   } 
 
-  // Todo: fazer metodo que captura o array de cores e cria a classe css
+  private createColor = (coloredPokemon: string[]): string => {
+    let bg: string = `linear-gradient(90deg, ${coloredPokemon[0]} 50%, ${coloredPokemon[0]} 50%)`;
+
+    if(coloredPokemon.length > 1){
+      bg = `linear-gradient(90deg, ${coloredPokemon[0]} 50%, ${coloredPokemon[1]} 50%)`;
+    }
+
+    return bg;
+  }
 
   private onError = error => console.log(`Falha ao tentar ${error.url}`);
 }
